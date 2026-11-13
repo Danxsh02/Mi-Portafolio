@@ -1,0 +1,1 @@
+Create one folder per project and add cover images. Update the cover paths in script.js.

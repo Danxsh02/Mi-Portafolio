@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Daniel Muñoz — Multimedia Engineering student creating digital experiences through web development, interactive media, design and audiovisual production.">
+    <meta name="theme-color" content="#212121">
+    <title>Daniel Muñoz — Multimedia Engineer & Creative Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="enhance.css">
+
+    <!-- El orden importa: i18n.js primero, script.js después -->
+    <script defer src="i18n.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="enhance.js"></script>
+</head>
+
+<body>
+
+    <!-- Efectos de fondo -->
+    <canvas id="bg-geo" aria-hidden="true"></canvas>
+    <div class="progress" id="progress"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+        <a class="brand" href="#home" aria-label="Daniel Muñoz home">
+            <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><g class="lg-ring"><circle cx="20" cy="20" r="17" stroke="#CAED57" stroke-width="1.2" stroke-dasharray="3 5"/><circle class="lg-dot" cx="20" cy="3" r="2.4"/></g><path class="lg-m" d="M11 27V14l9 9 9-9v13" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            
+        </a>
+
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#work">Projects</a>
+            <a href="#multimedia">Audio & Video</a>
+            <a href="#toolkit">Toolkit</a>
+            <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Cambiar a español">ES</button>
+            <a href="#contact" class="nav-contact">Let's talk <span>↗</span></a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ===================== HERO ===================== -->
+        <section class="hero section-wrap" id="home">
+            <div class="hero-copy">
+                <div class="eyebrow"><span class="status-dot"></span> MULTIMEDIA ENGINEERING · CREATIVE TECHNOLOGY</div>
+
+                <h1>Ideas into<br><span class="gradient-text">digital experiences.</span></h1>
+
+                <p class="hero-lede"><span id="lede-text">I’m <b>Daniel Muñoz</b>, a multimedia engineer in the making. I build </span><span class="typed" id="typed"></span><span class="caret"></span></p>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#work">Explore my work <span>↘</span></a>
+                    <a class="button button-quiet" href="documents/daniel-munoz-cv.pdf" target="_blank" rel="noreferrer">View résumé <span>↗</span></a>
+                </div>
+
+                <div class="hero-meta">
+                    <div><span class="meta-label">FOCUS</span><strong>Web · Unity · UI/UX · Audio</strong></div>
+                    <div><span class="meta-label">LANGUAGES</span><strong>Spanish · English C2</strong></div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <canvas id="wave" width="560" height="560"></canvas>
+                <canvas id="hero3d" aria-hidden="true"></canvas>
+                <div class="visual-orbit orbit-a"></div>
+                <div class="visual-orbit orbit-b"></div>
+
+                <div class="visual-core">
+                    <div class="visual-glow"></div>
+                    <div class="visual-initials">DM</div>
+                    <span class="visual-caption">DESIGN × CODE × MEDIA</span>
+                </div>
+
+                <div class="floating-chip chip-top"><span class="chip-icon">⌘</span> Creative developer</div>
+                <div class="floating-chip chip-bottom"><span class="sound-bars"><i></i><i></i><i></i><i></i><i></i></span> Building with curiosity</div>
+                <div class="visual-cross cross-one">✳</div>
+                <div class="visual-cross cross-two">✧</div>
+            </div>
+
+            <a class="scroll-cue" href="#about"><span></span> SCROLL TO EXPLORE</a>
+        </section>
+
+        <!-- Cinta de tecnologías -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track" id="marquee-track">Unity ✦ React ✦ Figma ✦ Pro Tools ✦ Node.js ✦ Blender ✦ MySQL ✦ After Effects ✦ C# ✦ Premiere Pro ✦ JavaScript ✦ Audition ✦ </div>
+        </div>
+
+        <!-- Estadísticas -->
+        <div class="stats section-wrap">
+            <div><b data-count="10">0</b><span>featured projects</span></div>
+            <div><b data-count="6">0</b><span>creative disciplines</span></div>
+            <div><b>C2</b><span>English</span></div>
+            <div><b data-count="360" data-suffix="°">0</b><span>idea to final product</span></div>
+        </div>
+
+        <!-- ===================== ABOUT ===================== -->
+        <section class="section-wrap about-section" id="about">
+            <div class="section-kicker">01 / ABOUT ME</div>
+
+            <div class="about-grid">
+                <div>
+                    <h2>One discipline.<br><span class="muted-heading">Many ways to create.</span></h2>
+                    <p class="body-copy">I’m studying Multimedia Engineering and building a versatile skill set across software development, interactive experiences and digital production. I enjoy turning ideas into clear, engaging experiences — from the first interface sketch to the final implementation.</p>
+                    <div class="principles">
+                        <div class="principle"><svg viewBox="0 0 44 44"><path d="M6 36 18 22l7 7 13-17"/><circle cx="38" cy="12" r="2.5"/></svg><b>Analytical</b><small>Logic first</small></div>
+                        <div class="principle"><svg viewBox="0 0 44 44"><circle cx="17" cy="22" r="11"/><circle cx="27" cy="22" r="11"/></svg><b>Creative</b><small>Ideas that move</small></div>
+                        <div class="principle"><svg viewBox="0 0 44 44"><path d="M22 6v8M22 30v8M6 22h8M30 22h8M11 11l5 5M28 28l5 5M33 11l-5 5M16 28l-5 5"/></svg><b>Curious</b><small>Always learning</small></div>
+                    </div>
+                    <a class="text-link" href="#contact">More about working together <span>↗</span></a>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-image-wrap">
+                        <img id="profile-photo" src="assets/profile/profile.jpeg" alt="Portrait of Daniel Muñoz">
+                        <div class="profile-fallback" id="profile-fallback">DM</div>
+                    </div>
+                    <div class="profile-card-footer">
+                        <span>Daniel Muñoz</span>
+                        <span>Multimedia Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== EXPERTISE ===================== -->
+        <section class="section-wrap expertise-section" id="expertise">
+            <div class="section-kicker">02 / WHAT I DO</div>
+
+            <div class="section-heading-row">
+                <h2>Areas of <span class="gradient-text">exploration.</span></h2>
+                <p>A multidisciplinary toolkit for creating useful, expressive and interactive digital products.</p>
+            </div>
+
+            <div class="expertise-grid">
+
+                <article class="expertise-card">
+                    <div class="card-topline"><span class="expertise-icon">⌘</span><span class="card-number">01</span></div>
+                    <h3>Web Development</h3>
+                    <p>Responsive interfaces built with HTML, CSS, JavaScript and React, connected to real backends.</p>
+                    <div class="tag-list"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Node.js</span></div>
+                </article>
+
+                <article class="expertise-card">
+                    <div class="card-topline"><span class="expertise-icon">◈</span><span class="card-number">02</span></div>
+                    <h3>Unity & Interactive</h3>
+                    <p>Gameplay, interaction systems and immersive AR/VR experiences. 15+ Unity projects.</p>
+                    <div class="tag-list"><span>Unity</span><span>C#</span><span>AR / VR</span><span>Game design</span></div>
+                </article>
+
+                <article class="expertise-card">
+                    <div class="card-topline"><span class="expertise-icon">▧</span><span class="card-number">03</span></div>
+                    <h3>UI / UX Design</h3>
+                    <p>Interfaces, flows and prototypes designed around usability, then implemented.</p>
+                    <div class="tag-list"><span>Figma</span><span>Wireframes</span><span>Prototyping</span><span>Photoshop</span><span>Illustrator</span></div>
+                </article>
+
+                <article class="expertise-card is-featured">
+                    <div class="card-topline"><span class="expertise-icon">♫</span><span class="card-number">04</span></div>
+                    <h3>Audio Production</h3>
+                    <p>Editing, mixing and sound design, including audio integrated into interactive and visual work.</p>
+                    <div class="tag-list"><span>Pro Tools</span><span>Audition</span><span>Sound design</span><span>Mixing</span></div>
+                </article>
+
+                <article class="expertise-card">
+                    <div class="card-topline"><span class="expertise-icon">▶</span><span class="card-number">05</span></div>
+                    <h3>Video, Motion & 3D</h3>
+                    <p>Video editing, motion graphics and 3D modeling for polished audiovisual pieces.</p>
+                    <div class="tag-list"><span>Premiere Pro</span><span>After Effects</span><span>Blender</span></div>
+                </article>
+
+                <article class="expertise-card">
+                    <div class="card-topline"><span class="expertise-icon">▤</span><span class="card-number">06</span></div>
+                    <h3>Databases & Backend</h3>
+                    <p>Relational databases and REST APIs with authentication and service-based architecture.</p>
+                    <div class="tag-list"><span>MySQL</span><span>SQL</span><span>Express</span><span>REST</span><span>JWT</span></div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ===================== PROJECTS ===================== -->
+        <section class="section-wrap work-section" id="work">
+            <div class="section-kicker">03 / SELECTED WORK</div>
+
+            <div class="section-heading-row">
+                <h2>Projects worth <span class="gradient-text">exploring.</span></h2>
+                <p>A selection of academic and personal work. More projects will be added as the portfolio grows.</p>
+            </div>
+
+            <div class="filter-row" id="project-filters" aria-label="Filter projects">
+                <button class="filter-button active" data-filter="all">All projects</button>
+                <button class="filter-button" data-filter="web">Web & Networks</button>
+                <button class="filter-button" data-filter="unity">Unity & XR</button>
+                <button class="filter-button" data-filter="design">UI/UX & 3D</button>
+            </div>
+
+            <!-- Las tarjetas las genera script.js -->
+            <div class="projects-grid" id="projects-grid"></div>
+        </section>
+
+        <!-- ===================== AUDIO & VIDEO ===================== -->
+        <section class="multimedia-section" id="multimedia">
+            <div class="section-wrap">
+                <div class="section-kicker">04 / AUDIOVISUAL</div>
+
+                <div class="section-heading-row">
+                    <h2>Sound, motion<br><span class="gradient-text">& visual stories.</span></h2>
+                    <p>Audio production, sound design, video editing and motion work. A visual space for the details that bring digital experiences to life.</p>
+                </div>
+
+                <!-- Las tarjetas las genera script.js (lista mediaItems) -->
+                <div class="media-grid" id="media-grid"></div>
+            </div>
+        </section>
+
+        <!-- ===================== TOOLKIT ===================== -->
+        <section class="section-wrap toolkit-section" id="toolkit">
+            <div class="section-kicker">05 / TOOLKIT</div>
+
+            <div class="section-heading-row">
+                <h2>Tools I work <span class="gradient-text">with.</span></h2>
+                <p>From code and interactive worlds to 3D, interfaces and sound. The tools behind the work, organized by discipline.</p>
+            </div>
+
+            <div class="toolkit-panel">
+                <div class="toolkit-group">
+                    <h3>Development</h3>
+                    <div class="tool-pills"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>PHP</span><span>WordPress</span><span>Python</span><span>PyTorch</span><span>C#</span><span>Git & GitHub</span><span>VS Code</span></div>
+                </div>
+
+                <div class="toolkit-group">
+                    <h3>Design & Interactive</h3>
+                    <div class="tool-pills"><span>Unity</span><span>OpenXR</span><span>Figma</span><span>Photoshop</span><span>Illustrator</span><span>Blender</span><span>Packet Tracer</span></div>
+                </div>
+
+                <div class="toolkit-group">
+                    <h3>Audio & Video</h3>
+                    <div class="tool-pills"><span>Pro Tools</span><span>Audition</span><span>Premiere Pro</span><span>After Effects</span></div>
+                </div>
+
+                <div class="toolkit-group">
+                    <h3>Languages</h3>
+                    <div class="language-row"><span>Spanish</span><strong>Native</strong></div>
+                    <div class="language-row"><span>English</span><strong>C2</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CONTACT ===================== -->
+        <section class="contact-section" id="contact">
+            <div class="section-wrap contact-inner">
+                <div class="section-kicker">06 / GET IN TOUCH</div>
+                <h2>Have a project<br>in <span class="gradient-text">mind?</span></h2>
+                <p>I’m open to opportunities, collaborations and conversations about creative technology.</p>
+
+                <a class="button button-primary" href="mailto:Danimudel200502@gmail.com" id="email-link">Let’s talk <span>↗</span></a>
+
+                <div class="social-links">
+                    <a href="https://github.com/Danxsh02" target="_blank" rel="noreferrer" id="github-link">GitHub ↗</a>
+                    <a href="https://www.linkedin.com/in/daniel-muñoz-delgado-04b90a362" target="_blank" rel="noreferrer" id="linkedin-link">LinkedIn ↗</a>
+                    <a href="mailto:Danimudel200502@gmail.com" id="contact-email">Danimudel200502@gmail.com</a>
+                </div>
+
+                <footer>
+                    <span>© <span id="year"></span> Daniel Muñoz</span>
+                    <span>Designed with curiosity & intention.</span>
+                </footer>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Ficha expandida de proyectos -->
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title">
+        <div class="dialog-progress" id="dialog-progress"></div>
+        <button class="project-dialog-close" type="button" aria-label="Close project details">×</button>
+        <div id="project-dialog-content"></div>
+    </dialog>
+
+    <!-- Visor independiente de imágenes -->
+    <dialog class="image-lightbox" id="image-lightbox" aria-label="Image viewer">
+        <button class="gallery-lightbox-close" type="button" aria-label="Close image">×</button>
+        <img src="" alt="">
+    </dialog>
+
+</body>
+
+</html>

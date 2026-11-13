@@ -1,0 +1,165 @@
+/* =========================================================
+   ENHANCE — carrusel, fondo geométrico, hero 3D, logo, ajustes
+   (se carga después de theme.css)
+   ========================================================= */
+
+/* ---------- Fondo geométrico animado (gris sobre negro) ---------- */
+#bg-geo{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,.site-header{position:relative;z-index:1}
+.site-header{z-index:50}
+.multimedia-section,.contact-section{background:rgba(33,33,33,.55)!important}
+.multimedia-section::before{opacity:.5}
+body::before{z-index:0}
+
+/* ---------- Logo nuevo ---------- */
+.brand-mark{display:grid;place-items:center;width:46px;height:46px;padding:0;border-radius:14px;
+  background:var(--ink);border:1px solid rgba(202,237,87,.55);color:transparent;font-size:0;box-shadow:none!important;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.brand-mark svg{width:30px;height:30px;overflow:visible}
+.brand-mark .lg-ring{transform-origin:20px 20px;animation:lgspin 14s linear infinite}
+.brand-mark .lg-dot{fill:var(--lime)}
+.brand-mark .lg-m{stroke:var(--text);transition:stroke .3s}
+.brand:hover .brand-mark{transform:rotate(-8deg) scale(1.06);border-color:var(--lime)}
+.brand:hover .lg-m{stroke:var(--lime)}
+@keyframes lgspin{to{transform:rotate(360deg)}}
+
+/* ---------- Flechas: siempre visibles ---------- */
+.nav-contact span,.button-primary span{display:inline-grid;place-items:center;width:22px;height:22px;margin-left:8px;
+  border-radius:50%;background:var(--ink);color:var(--lime);font-size:13px;line-height:1;transition:transform .25s}
+.nav-contact:hover span,.button-primary:hover span{transform:rotate(45deg)}
+.button-quiet span{color:var(--lime)}
+
+/* ---------- Audio Production: sin tarjeta iluminada ---------- */
+.expertise-card.is-featured,.is-featured{background:rgba(255,255,255,.035)!important;color:var(--text)!important;box-shadow:none!important}
+.is-featured *{color:inherit!important;border-color:inherit!important}
+.is-featured h3{color:var(--text)!important}
+.is-featured p{color:var(--muted)!important}
+.is-featured .tag-list span{border-color:rgba(178,178,178,.35)!important}
+
+/* ---------- Cinta más lenta ---------- */
+.marquee-track{animation-duration:110s!important}
+.marquee-reverse .marquee-track{animation-duration:130s!important}
+
+/* ---------- Hero: orbe 3D de alambre ---------- */
+.hero-visual{height:min(520px,70vw)}
+#wave{display:none}
+#hero3d{position:absolute;inset:0;width:100%;height:100%}
+.visual-core{width:clamp(130px,22vw,190px);height:clamp(130px,22vw,190px);background:rgba(33,33,33,.82);
+  border:1px solid rgba(202,237,87,.5);box-shadow:0 0 60px rgba(0,0,0,.6);animation:none;backdrop-filter:blur(6px)}
+.visual-glow{display:none}
+.visual-initials{font-size:clamp(40px,7vw,64px);background:none;color:var(--text);-webkit-background-clip:initial;background-clip:initial}
+.visual-caption{bottom:22%;font-size:7px;color:var(--lime)}
+
+/* ---------- Carrusel de proyectos ---------- */
+.projects-carousel{position:relative;margin-inline:calc(50% - 50vw);width:100vw}
+.projects-grid{display:flex!important;gap:clamp(14px,2vw,26px);overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:10px max(20px,calc((100vw - 1170px)/2)) 28px;scroll-padding-inline:max(20px,calc((100vw - 1170px)/2));
+  scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.projects-grid::-webkit-scrollbar{display:none}
+.projects-grid.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.projects-grid .project-card{flex:0 0 clamp(290px,38vw,520px);scroll-snap-align:start;display:flex;flex-direction:column;
+  animation:none;opacity:.55;transform:scale(.94);transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s,border-color .3s}
+.projects-grid .project-card.is-active{opacity:1;transform:scale(1);border-color:rgba(202,237,87,.5)}
+.project-cover{aspect-ratio:16/10;min-height:0!important;height:auto!important;overflow:hidden}
+.project-cover .cover-image{width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.project-info{flex:1;display:flex;flex-direction:column}
+.project-info p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.project-footer{margin-top:auto}
+.carousel-controls{display:flex;align-items:center;gap:18px;margin-top:6px;padding-inline:max(20px,calc((100vw - 1170px)/2))}
+.carousel-progress{flex:1;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.carousel-progress i{display:block;height:100%;width:100%;background:var(--lime);transform-origin:left;transform:scaleX(.1);transition:transform .15s linear}
+.carousel-count{font-family:var(--display);font-size:12px;color:var(--muted);min-width:64px;text-align:right}
+.carousel-btn{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(235,236,236,.35);
+  background:transparent;color:var(--text);font-size:20px;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.carousel-btn:hover:not(:disabled){background:var(--lime);color:var(--ink);border-color:var(--lime);transform:scale(1.06)}
+.carousel-btn:disabled{opacity:.3;cursor:default}
+
+/* ---------- About: principios en vez de párrafo ---------- */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
+.principle{padding:18px 14px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);text-align:center;transition:border-color .3s,transform .3s}
+.principle:hover{border-color:var(--lime);transform:translateY(-4px)}
+.principle svg{width:44px;height:44px;margin-bottom:10px;stroke:var(--lime);fill:none;stroke-width:1.5}
+.principle b{display:block;font-family:var(--display);font-size:12px;font-weight:500}
+.principle small{display:block;margin-top:4px;font-size:12px;color:var(--soft)}
+
+/* ---------- Toolkit: mosaicos en vez de listas de texto ---------- */
+.tool-pills{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:10px}
+.tool-pills span.tile{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 6px 10px;border-radius:14px;
+  border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:11px;text-align:center;line-height:1.2;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,background .3s}
+.tile i{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;font-style:normal;font-family:var(--display);
+  font-size:13px;font-weight:600;color:var(--lime);background:rgba(202,237,87,.08);transition:background .3s,color .3s}
+.tool-pills span.tile:hover{transform:translateY(-5px);border-color:var(--lime);background:rgba(255,255,255,.06)}
+.tool-pills span.tile:hover i{background:var(--lime);color:var(--ink)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .projects-grid .project-card{flex-basis:clamp(280px,56vw,460px)}
+  .principles{gap:10px}
+}
+@media (max-width:760px){
+  .projects-grid .project-card{flex-basis:84vw}
+  .principles{grid-template-columns:1fr;}
+  .principle{display:grid;grid-template-columns:44px 1fr;gap:0 14px;text-align:left;align-items:center;padding:14px}
+  .principle svg{grid-row:span 2;margin:0}
+  .carousel-btn{width:46px;height:46px}
+  .carousel-count{display:none}
+  .brand-mark{width:42px;height:42px}
+}
+@media (prefers-reduced-motion:reduce){
+  .brand-mark .lg-ring{animation:none}
+  .marquee-track{animation-duration:240s!important}
+}
+
+/* =========================================================
+   V5 — botones laterales, autoplay y transiciones de salida
+   ========================================================= */
+.carousel-controls{margin-top:0}
+.carousel-btn.side{position:absolute;top:calc(50% - 40px);z-index:5;width:56px;height:56px;border-radius:50%;
+  background:rgba(33,33,33,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(202,237,87,.55);color:var(--lime);box-shadow:0 10px 30px rgba(0,0,0,.45);
+  transition:background .25s,color .25s,transform .25s}
+.carousel-btn.side:hover{background:var(--lime);color:var(--ink);transform:scale(1.1)}
+.carousel-btn.side:active{transform:scale(.94)}
+.carousel-btn.side.prev{left:clamp(10px,2vw,32px)}
+.carousel-btn.side.next{right:clamp(10px,2vw,32px)}
+.carousel-btn.side:disabled{opacity:1;cursor:pointer}
+
+/* Tarjetas: al salir de foco se inclinan, se desenfocan y la imagen se aleja */
+.projects-grid{perspective:1400px}
+.projects-grid .project-card{transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .6s,filter .6s,border-color .4s,box-shadow .6s}
+.projects-grid .project-card.is-before{transform:scale(.9) rotateY(9deg) translateX(14px);filter:blur(1.5px) saturate(.7)}
+.projects-grid .project-card.is-after{transform:scale(.9) rotateY(-9deg) translateX(-14px);filter:blur(1.5px) saturate(.7)}
+.projects-grid .project-card.is-active{box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(202,237,87,.35)}
+.project-cover .cover-image{transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s}
+.project-card:not(.is-active) .cover-image{transform:scale(1.12)}
+.project-card.is-active .cover-image{transform:scale(1)}
+.project-card .project-info>*{transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.project-card:not(.is-active) .project-info>*{transform:translateY(12px);opacity:.6}
+.project-card.is-active .project-info>*:nth-child(2){transition-delay:.06s}
+.project-card.is-active .project-info>*:nth-child(3){transition-delay:.12s}
+.project-card.is-active .project-info>*:nth-child(4){transition-delay:.18s}
+
+/* Recorrido visual como carrusel */
+.gallery-carousel{position:relative}
+.project-gallery{scroll-behavior:auto;perspective:1200px}
+.project-gallery.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.project-gallery>*{transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .5s,filter .5s}
+.project-gallery>.is-before{transform:scale(.94) rotateY(5deg);opacity:.55;filter:blur(1px)}
+.project-gallery>.is-after{transform:scale(.94) rotateY(-5deg);opacity:.55;filter:blur(1px)}
+.project-gallery>.is-active{opacity:1;transform:none}
+.gallery-image img{-webkit-user-drag:none;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.gallery-image.is-active img{transform:scale(1.03)}
+.gallery-carousel .carousel-btn.side{top:calc(50% - 10px);width:48px;height:48px}
+.gallery-carousel .carousel-btn.side.prev{left:10px}
+.gallery-carousel .carousel-btn.side.next{right:10px}
+
+@media (max-width:760px){
+  .carousel-btn.side{width:44px;height:44px;font-size:17px;top:calc(50% - 90px)}
+  .carousel-btn.side.prev{left:6px}.carousel-btn.side.next{right:6px}
+  .gallery-carousel .carousel-btn.side{width:40px;height:40px;top:calc(50% - 10px)}
+  .projects-grid .project-card.is-before,.projects-grid .project-card.is-after{transform:scale(.94);filter:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .projects-grid .project-card,.project-gallery>*{transition:none}
+}

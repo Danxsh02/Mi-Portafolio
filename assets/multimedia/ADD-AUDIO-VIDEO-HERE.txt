@@ -1,0 +1,1 @@
+Add MP3/WAV audio or MP4 video here. Update mediaItems in script.js with each relative file path.
